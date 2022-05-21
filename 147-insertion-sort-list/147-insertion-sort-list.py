@@ -11,13 +11,11 @@ class Solution:
         curr = head
 
         while curr:
-            # At each iteration, we insert an element into the resulting list.
             prev = dummy
 
-            # find the position to insert the current node
             while prev.next and prev.next.val < curr.val:
                 prev = prev.next
-
+                
             next = curr.next
             # insert the current node to the new list
             curr.next = prev.next
@@ -27,6 +25,5 @@ class Solution:
             curr = next
 
         return dummy.next
-            
-            
-        
+
+                
