@@ -6,11 +6,11 @@ class Solution:
 
     
 '''
-    numSet = sorted(set(nums))
-    rst, j = [], 0
-    for i in range(1, len(nums) + 1):
-        if i == numSet[j]: j += 1
-        else: rst.append(i)
-    return rst
+        numSet = sorted(set(nums))
+        rst, j = [], 0
+        for i in range(1, len(nums) + 1):
+            if i == numSet[j]: j += 1
+            else: rst.append(i)
+        return rst
 '''
 
