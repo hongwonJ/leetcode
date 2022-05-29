@@ -1,14 +1,9 @@
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        i, j = 0, len(numbers) - 1
         
-        n = len(numbers)
-        for i in range(n-1):
-            sum = numbers[i]
-            a, b = i + 1, n - 1
-            while a <= b:
-                c = (a+b)//2
-                if sum + numbers[c] == target: return [i+1, c+1]
-                elif sum + numbers[c] < target: a = c+1
-                else: b = c-1
-            
+        while True:
+            if numbers[i] + numbers[j] == target: return[i+1, j+1]
+            elif numbers[i] + numbers[j] < target: i += 1
+            else: j -= 1
             
