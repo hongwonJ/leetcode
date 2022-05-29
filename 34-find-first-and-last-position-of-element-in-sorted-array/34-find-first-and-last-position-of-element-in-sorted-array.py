@@ -1,25 +1,25 @@
 class Solution:
     def searchRange(self, nums: List[int], target: int) -> List[int]:
         
-        def tSearch(a: int, b: int, nums: list, target: float):
-            while a <= b:
-                c = (a + b) // 2
-                if target < nums[c]: b = c -1
-                elif nums[c] < target: a = c + 1
-                else: return True, c
-            return False, c
+        sp, ep = 0, len(nums) - 1
+        smp = self.pSearch(sp, ep, nums, target)
+        emp = smp
+        while smp > 0 and nums[smp-1] == target:
+            smp = self.pSearch(sp, smp - 1, nums, target)
+        sp = smp
+        while emp < len(nums) - 1 and nums[emp+1] == target:
+            emp = self.pSearch(emp + 1, ep, nums, target)
+        ep = emp
+
+        return [sp, ep]
+
+    def pSearch(self, a: int, b: int, nums: List[int], target: float) -> int:
+        while a <= b:
+            c = (a + b) // 2
+            if target < nums[c]: b = c - 1
+            elif nums[c] < target: a = c + 1
+            else: return c
+        return -1
     
-        t_dex = tSearch(0, len(nums) - 1, nums, target) if len(nums) > 0 else (False, -1)
-        
-        if not t_dex[0]: return [-1, -1]
-        else:
-            start = tSearch(0, t_dex[1] - 1, nums, target - 0.5)[1] if t_dex[1] > 1 else 0
-            if nums[start] != target: start += 1 
-            end = tSearch(t_dex[1] + 1, len(nums) - 1, nums, target + 0.5)[1] if t_dex[1] < len(nums) -1 else len(nums) - 1
-            if nums[end] != target: end -= 1
-
-        return [start,end]
-
-
 
 
