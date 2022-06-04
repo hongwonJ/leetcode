@@ -8,6 +8,16 @@
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
         
+        if q.val < p.val: p, q = q, p
+
+        while root:
+            if q.val < root.val: root = root.left
+            elif root.val < p.val: root = root.right
+            else: return root
+            
+            
+            
+'''
         def findDes(root, x): 
             path = []
             while True:
@@ -24,15 +34,15 @@ class Solution:
         ppath = findDes(root, p)
         qpath = findDes(root, q)
         
-        while ppath:
-            x = ppath.pop()
-            if x in qpath: return x
+        while root:
+            if root.val == p.val: return root
+            elif 
                 
             
             
         
-                
-            
-                
-                    
-            
+                5
+            3       6
+          2   4   n   n
+        1
+ '''                    
