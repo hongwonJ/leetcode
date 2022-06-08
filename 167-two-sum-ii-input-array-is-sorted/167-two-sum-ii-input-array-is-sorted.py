@@ -3,6 +3,7 @@ class Solution:
         
         for i in range(len(numbers) - 1):
             a, b = i + 1, len(numbers) - 1
+            if numbers[i] + numbers[b] < target: continue
             ntarget = target - numbers[i]
             while a <= b:
                 c = (a + b)//2                
