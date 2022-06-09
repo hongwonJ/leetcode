@@ -28,6 +28,4 @@ class Solution:
             for j in range(i+1,n):
                 if isConnected[i][j] == 1: count = union(i,j, count)
         
-        for i in range(n): find(i)
-                      
         return count
