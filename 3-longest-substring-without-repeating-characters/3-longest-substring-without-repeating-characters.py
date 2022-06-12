@@ -3,19 +3,17 @@ class Solution:
         n = len(s)
         ans = 0
         # mp stores the current index of a character
-        mp = {}
+        cnt = {}
 
         i = 0
-        # try to extend the range [i, j]
         for j in range(n):
-            if s[j] in mp:
-                i = max(mp[s[j]], i)
-
+            if s[j] in cnt and i <= cnt[s[j]]:
+                i = cnt[s[j]] + 1
+            cnt[s[j]] = j
             ans = max(ans, j - i + 1)
-            mp[s[j]] = j + 1
-
-        return ans        
         
+        return ans
+            
         
 '''
         lst = list(s)
