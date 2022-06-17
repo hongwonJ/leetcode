@@ -11,10 +11,6 @@ class Solution:
             for v in Adj[u]:
                 if d[v] > d[u] + triList[v]: d[v] = d[u] + triList[v]
         
-        print(Adj)
-        print(triList)
-        print(d)
-        
         w = len(triangle[-1])
         return min(d[-w:])
         
