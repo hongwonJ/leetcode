@@ -13,7 +13,7 @@ class Solution:
         for i in range(m):
             for j in range(n):
                 if grid[i][j] == 2:
-                    self.DFS(i,j,m,n,grid,D)
+                    self.BFS(i,j,m,n,grid,D)
         print(D)
         
         max_dpth = 0
@@ -25,7 +25,7 @@ class Solution:
                 
         return max_dpth
         
-    def DFS(self,i,j,m,n,grid,D):
+    def BFS(self,i,j,m,n,grid,D):
         dpth, stack,seen = 0, deque(), set()
         stack.append([i,j,0])
         while stack:
