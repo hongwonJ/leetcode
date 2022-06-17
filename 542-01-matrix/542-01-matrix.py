@@ -7,7 +7,7 @@ class Solution:
         for i in range(m):
             for j in range(n):
                 self.findDist(i,j,m,n,mat,D)
-        
+        '''
         for i in range(m-1,-1,-1):
             for j in range(n):
                 self.findDist(i,j,m,n,mat,D)
@@ -15,7 +15,7 @@ class Solution:
         for i in range(m):
             for j in range(n-1,-1,-1):
                 self.findDist(i,j,m,n,mat,D)
-        
+        '''
         for i in range(m-1, -1, -1):
             for j in range(n-1,-1,-1):
                 self.findDist(i,j,m,n,mat,D)
