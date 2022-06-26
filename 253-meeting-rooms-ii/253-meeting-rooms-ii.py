@@ -17,6 +17,7 @@ class Solution:
         max_cnt, cnt = 1, 0
         
         while flist:
+            if f == float(inf): return max_cnt
             if f < b:
                 cnt += 1
                 if cnt > max_cnt: max_cnt = cnt
