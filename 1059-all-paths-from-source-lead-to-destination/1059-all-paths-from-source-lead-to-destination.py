@@ -11,8 +11,8 @@ class Solution:
     def buildAdj(self, edges):
         Adj = dict()
         for depart, destin in edges:
-            if depart not in Adj: Adj[depart] = [destin]
-            else: Adj[depart].append(destin)
+            if depart not in Adj: Adj[depart] = set()
+            Adj[depart].add(destin)
         return Adj
     
     def DFS(self, node, destination):
