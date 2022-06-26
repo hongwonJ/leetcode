@@ -16,21 +16,13 @@ class Solution:
         return Adj
     
     def DFS(self, node, destination):
+        if self.Visited[node]: self.sign = False
         if not self.sign: return
         self.Visited[node] = True
         if node not in self.Adj:
             if node != destination: self.sign = False
             return
-        else:
-            node_visited = []
-            for adj_node in self.Adj[node]:
-                node_visited.append(self.Visited[adj_node])
-                if not self.Visited[adj_node]:
-                    self.DFS(adj_node, destination)
-                    self.Visited[adj_node] = False
-                if all(node_visited):
-                    self.sign = False
-                    return
+        for adj_node in self.Adj[node]:
+            self.DFS(adj_node, destination)
+            self.Visited[adj_node] = False
             
-                
-                
