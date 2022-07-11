@@ -3,18 +3,13 @@ class Solution:
         l = len(prices)
         if l == 1: return 0
         cur, nex = 0, 1
-        pro, buy = 0, -1
+        pro = 0
         
-        while cur < l:
-            if cur == l - 1:
-                if buy >= 0: pro += (prices[cur] - buy)
-                return pro
-            if buy < 0:
-                if prices[cur] < prices[nex]: buy = prices[cur]    
-            else: 
-                if prices[cur] >= prices[nex]:
-                    pro += (prices[cur] - buy)
-                    buy = -1
+        while cur < l - 1:
+            if prices[cur] < prices[nex]:
+                pro += (prices[nex] - prices[cur])
             cur += 1
             nex += 1
+        
+        return pro
             
