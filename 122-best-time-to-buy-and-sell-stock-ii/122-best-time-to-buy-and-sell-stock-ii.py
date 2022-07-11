@@ -10,8 +10,7 @@ class Solution:
                 if buy >= 0: pro += (prices[cur] - buy)
                 return pro
             if buy < 0:
-                if prices[cur] < prices[nex]:
-                    buy = prices[cur]    
+                if prices[cur] < prices[nex]: buy = prices[cur]    
             else: 
                 if prices[cur] >= prices[nex]:
                     pro += (prices[cur] - buy)
