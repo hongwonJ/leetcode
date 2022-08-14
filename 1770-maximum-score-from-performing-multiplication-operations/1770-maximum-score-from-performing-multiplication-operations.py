@@ -7,6 +7,7 @@ class Solution:
         # For Right Pointer
         n = len(nums)
 
+        
         dp = [[0] * (m + 1) for _ in range(m + 1)]
 
         for op in range(m - 1, -1, -1):
@@ -16,4 +17,3 @@ class Solution:
                                    multipliers[op] * nums[n - 1 - (op - left)] + dp[op + 1][left])
 
         return dp[0][0]
- 
