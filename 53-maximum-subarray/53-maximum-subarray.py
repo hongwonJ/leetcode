@@ -9,7 +9,7 @@ class Solution:
                 memo[i] = max(dp(i+1) + nums[i], nums[i])
             return memo[i]
         
-        return max([dp(i) for i in range(n)])
+        return max([dp(i) for i in range(n-1, -1, -1)])
                 
         
         
