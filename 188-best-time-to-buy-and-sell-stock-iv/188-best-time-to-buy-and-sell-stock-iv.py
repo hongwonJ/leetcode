@@ -2,25 +2,14 @@ class Solution:
     def maxProfit(self, k: int, prices: List[int]) -> int:
         n = len(prices)
 
-        # solve special cases
-        if not prices or k==0:
-            return 0
+        if not prices or k==0: return 0
 
-        if 2*k > n:
-            res = 0
-            for i, j in zip(prices[1:], prices[:-1]):
-                res += max(0, i - j)
-            return res
-
-        # dp[i][used_k][ishold] = balance
-        # ishold: 0 nothold, 1 hold
-        dp = [[[-math.inf]*2 for _ in range(k+1)] for _ in range(n)]
+        dp = [[[float('-inf')]*2 for _ in range(k+1)] for _ in range(n)]
 
         # set starting value
         dp[0][0][0] = 0
         dp[0][1][1] = -prices[0]
 
-        # fill the array
         for i in range(1, n):
             for j in range(k+1):
                 # transition equation
