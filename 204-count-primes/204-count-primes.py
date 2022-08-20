@@ -9,5 +9,3 @@ class Solution:
                     sieve[j] = False
 
         return len([i for i in range(2, n) if sieve[i] == True])
-
-            
