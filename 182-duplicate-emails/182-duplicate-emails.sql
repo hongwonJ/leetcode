@@ -1,6 +1,8 @@
 # Write your MySQL query statement below
 
-SELECT Email
-FROM Person
-GROUP BY Email
-HAVING COUNT(Email) > 1;
+
+SELECT Email from (
+    SELECT Email, COUNT(Email) as num
+    FROM Person
+    GROUP BY Email
+) AS stats WHERE num > 1;
