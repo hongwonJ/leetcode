@@ -1,14 +1,14 @@
 # Write your MySQL query statement below
 
-SELECT employee_id 
-FROM Employees 
+SELECT employee_id
+FROM Employees
 WHERE employee_id NOT IN (
     SELECT employee_id FROM Salaries
 )
 
-UNION
+UNION 
 
-SELECT employee_id 
+SELECT employee_id
 FROM Salaries
 WHERE employee_id NOT IN (
     SELECT employee_id FROM Employees
