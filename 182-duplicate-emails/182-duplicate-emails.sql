@@ -1,8 +1,3 @@
-# Write your MySQL query statement below
-
-
-SELECT Email from (
-    SELECT Email, COUNT(Email) as num
-    FROM Person
-    GROUP BY Email
-) AS stats WHERE num > 1;
+SELECT email AS Email
+FROM (SELECT email, COUNT(*) AS dups FROM Person GROUP BY email) AS nums
+WHERE dups > 1
