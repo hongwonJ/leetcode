@@ -4,19 +4,18 @@ class Solution:
         nums.sort()
         
         def twoSum(i, target):
-            resid = dict()
             an = []
-            dupi = dict()
-            for k in range(i+1, n):
-                if nums[k] not in resid:
-                    resid[target - nums[k]] = nums[k]
-                    dupi[target - nums[k]] = False
-                    dupi[nums[k]] = False
-                elif nums[k] in resid and not dupi[target - nums[k]] and not dupi[nums[k]]:
-                    an.append([nums[k], resid[nums[k]]])
-                    dupi[nums[k]] = True
-                    dupi[target - nums[k]] = True
-                    
+            k = i+1
+            p = n-1
+            while k < p:
+                if nums[k] + nums[p] > target: p-= 1
+                elif nums[k] + nums[p] < target: k+= 1
+                else:
+                    an.append([nums[k], nums[p]])
+                    p -= 1
+                    k += 1
+                    while k < p and nums[k] == nums[k-1]:
+                        k += 1
             return an
         
         ans = []
