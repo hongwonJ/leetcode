@@ -10,8 +10,6 @@ class Solution:
         paths = []
         path = []
         
-        if not root: return paths
-        
         def DFS(root, ts, path):
             path.append(root.val)
             nextLv = []
@@ -24,7 +22,7 @@ class Solution:
                     DFS(nextNd, ts-root.val, path) 
                     path.pop()
         
-        DFS(root, targetSum, path)
+        if root: DFS(root, targetSum, path)
         
         return paths
         
