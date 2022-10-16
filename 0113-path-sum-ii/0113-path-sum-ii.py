@@ -10,7 +10,7 @@ class Solution:
 
                 # if node is leaf
                 if root.left == None and root.right == None and sum(path) == targetSum:
-                    path_list.append(path[:])
+                    path_list.append(list(path))
 
                 # moving to the left        ## update the list 
                 if root.left:
