@@ -9,21 +9,15 @@ class Solution:
     def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
         
         if not root: return False
+        stack = [[root, targetSum-root.val]]
+        while stack:
+            node, rem = stack.pop()
+            if node.left: stack.append([node.left, rem - node.left.val])
+            if node.right: stack.append([node.right, rem - node.right.val])
+            if not node.left and not node.right and rem == 0:
+                return True
         
-        def DFS(root, ts):
-            nextLv = []
-            if root.left: nextLv.append(root.left)
-            if root.right: nextLv.append(root.right)
-               
-            if ts-root.val == 0 and not nextLv: return True
-            elif nextLv:
-                fs= False
-                for nextNd in nextLv:
-                    fs = DFS(nextNd, ts-root.val)
-                    if fs: return fs
-        
-        return DFS(root, targetSum)
-        
+        return False
         
         
             
