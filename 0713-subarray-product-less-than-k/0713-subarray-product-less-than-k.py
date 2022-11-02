@@ -3,24 +3,20 @@ class Solution:
         n = len(nums)
         ans = 0
         i, j = 0, 0 
-        prod = 1
-        j_increased= True
+        
+        prod = nums[0]
         while i < n and j < n:
-
-            if nums[j] >= k:
-                j += 1
-                i = j
-                prod = 1
-                continue
-            if j_increased: prod *= nums[j]
             if prod < k:
-                ans += j-i+1
                 j += 1
-                j_increased= True
-            else:
+                ans += j-i
+                if j < n: prod *= nums[j]
+            elif prod >= k and i < j:
                 prod //= nums[i]
                 i += 1
-                j_increased = False
-                    
+            else: 
+                i += 1
+                j += 1
+                if j < n: prod = nums[j]
+            
         return ans
         
